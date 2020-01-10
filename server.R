@@ -2,7 +2,6 @@
 library(reshape2)
 library(ggplot2)
 library(DT)
-#library(shinyBS)
 library(cluster)
 
 
@@ -15,11 +14,7 @@ shinyServer(function(input, output) {
     read.csv(input$inputFile$datapath,row.names=1, header = TRUE, sep=",")
   })
   
-  # Mode <-  reactive({
-  #   switch(input$mode,
-  #          "Lot No." = cutree(tree=dendGroup(),k= input$bins),
-  #          "Good/Bad" = cutree(tree=dendGroup(),k= input$bins))
-  # })
+
   
   output$plot = renderPlot(
     {
