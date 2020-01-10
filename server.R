@@ -67,72 +67,7 @@ shinyServer(function(input, output) {
   })
   
 
-  
-  #http://qiita.com/antiplastics/items/6d98c640ef1f0060e166
-  output$Histgram1 = renderPlot({
-    df <- data_set()
-    gp <- NULL
-    if (!is.null(df)){
-      sel <- input$contents_columns_selected
-      if (length(sel)>=1) {
-        gp <- {
-          df <- sotedData()
-          histdata <- data.frame(df[,sel[1]],cluter =histdata())
-          ggplot(histdata)+guides(fill=FALSE)+xlab(colnames(df[sel[1]]))+geom_histogram(aes(df[,sel[1]],fill=histdata()),color="black",bins=input$HistBins)+
-            scale_fill_manual(values=rainbow(input$bins))
-        }
-      }
-    }
-    return(gp)
-  })
-  output$Histgram2 = renderPlot({
-    df <- data_set()
-    gp <- NULL
-    if (!is.null(df)){
-      sel <- input$contents_columns_selected
-      if (length(sel)>=2) {
-        gp <- {
-          df <- sotedData()
-          histdata <- data.frame(df[,sel[2]],cluter =histdata())
-          ggplot(histdata)+guides(fill=FALSE)+xlab(colnames(df[sel[2]]))+geom_histogram(aes(df[,sel[2]],fill=histdata()),color="black",bins=input$HistBins)+
-            scale_fill_manual(values=rainbow(input$bins))
-        }
-      }
-    }
-    return(gp)
-  })
-  output$Histgram3 = renderPlot({
-    df <- data_set()
-    gp <- NULL
-    if (!is.null(df)){
-      sel <- input$contents_columns_selected
-      if (length(sel)>=3) {
-        gp <- {
-          df <- sotedData()
-          histdata <- data.frame(df[,sel[3]],cluter =histdata())
-          ggplot(histdata)+guides(fill=FALSE)+xlab(colnames(df[sel[3]]))+geom_histogram(aes(df[,sel[3]],fill=histdata()),color="black",bins=input$HistBins)+
-            scale_fill_manual(values=rainbow(input$bins))
-        }
-      }
-    }
-    return(gp)
-  })
-  output$Histgram4 = renderPlot({
-    df <- data_set()
-    gp <- NULL
-    if (!is.null(df)){
-      sel <- input$contents_columns_selected
-      if (length(sel)>=4) {
-        gp <- {
-          df <- sotedData()
-          histdata <- data.frame(df[,sel[4]],cluter =histdata())
-          ggplot(histdata)+guides(fill=FALSE)+xlab(colnames(df[sel[4]]))+geom_histogram(aes(df[,sel[4]],fill=histdata()),color="black",bins=input$HistBins)+
-            scale_fill_manual(values=rainbow(input$bins))
-        }
-      }
-    }
-    return(gp)
-  })
+
   histdata <- reactive({
     col = PCAgroup()
     for (i in 1:length(col)){
