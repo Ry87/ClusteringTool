@@ -21,7 +21,6 @@ shinyServer(function(input, output) {
       df <- data_set()
       gp <- NULL
       sel <- input$contents_columns_selected
-      #rowsel <- input$contents_rows_selected
       if (!is.null(df)){
         if (length(sel)) {
           gp <- {
