@@ -25,7 +25,7 @@ shinyServer(function(input, output) {
         if (length(sel)) {
           gp <- {
             plot(df[sel],pch=as.character(df[,1]), cex = 2,col =clus_color())
-            #if (length(rowsel)) print(points(df[rowsel, , drop = FALSE], pch = 19, cex = 2.3))
+            
             }
         }
       }
