@@ -118,7 +118,7 @@ shinyServer(function(input, output) {
   
   observeEvent(input$show, {
   })
-#https://yihui.shinyapps.io/DT-selection/
+
   output$contents <- DT::renderDataTable(data_set(),selection = list(target='column'))
   
 
