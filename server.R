@@ -96,7 +96,7 @@ shinyServer(function(input, output) {
       ylab(yColName)+
       theme(plot.caption = element_text(size=16),plot.title = element_text(size=16))+
       geom_point(aes(colour=data[["group"]]),cex=3) +
-      labs( title=paste0(xColName," vs ",yColName), colour="Group")
+      labs( title=paste0(xColName," vs ",yColName), colour="cluster")
     return(plot)
   }
   
@@ -108,7 +108,6 @@ shinyServer(function(input, output) {
     dendPlot <- ggplot() + 
       geom_segment(data=segment(dendroData), aes(x=x, y=y, xend=xend, yend=yend)) + 
       geom_text(data=label(dendroData), aes(x, y, label=label, hjust=0, color=cluster),size=4) +
-      labs(title = "Dendrogram") +
       theme(plot.title = element_text(size=16))
     return(dendPlot)
   }
