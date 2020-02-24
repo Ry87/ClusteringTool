@@ -6,10 +6,10 @@ shinyUI(fluidPage(
     sidebarPanel(
            fileInput(inputId = "inputFile", 
                      label = "Import csv:"), 
-           selectInput(inputId = "dataset",
+           selectInput(inputId = "method",
                        label = "Set clustering method :",
-                       choices = c("Average", "Ward", "K-means")),
-           sliderInput(inputId = "bins",
+                       choices = c("Average", "Ward","Single","Complete","Centroid","Median","Mcquitty", "K-means")),
+           sliderInput(inputId = "clusterNum",
                        label = "Set number of clusters:",
                        min = 2,
                        max = 10,
@@ -17,7 +17,7 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(tabsetPanel(
-      tabPanel("Data",DT::dataTableOutput("contents")),
+      tabPanel("Data",DT::dataTableOutput("table")),
       tabPanel("Plot",plotOutput("plot")),
       tabPanel("Dendrogram",plotOutput("DENDplot"))
     ))
