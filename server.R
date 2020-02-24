@@ -26,7 +26,7 @@ shinyServer(function(input, output) {
   # Get Data
   ############################
   ImportedData <- reactive({if(is.null(input$inputFile)) return(NULL)
-    read.csv(input$inputFile$datapath,row.names=1, header = TRUE, sep=",")
+    read.csv(input$inputFile$datapath, header = TRUE, sep=",")
   })
 
   GetGroupInfo <-  function(data){
